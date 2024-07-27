@@ -1,5 +1,8 @@
 {
   "[css]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": "explicit"
+    },
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "css.validate": false,
