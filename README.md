@@ -21,6 +21,7 @@ Recommended for those who meet all of the following criteria:
 
 - [The New CSS Reset](https://github.com/elad2412/the-new-css-reset)
 - [@acab/reset.css](https://github.com/mayank99/reset.css)
+- [The Best CSS Reset of 2024!](https://github.com/Lazzzer00/Best-CSS-Reset-2024)
 
 Thanks to the developers of these excellent reset CSS. If you know of any other great reset CSS, please let me know through an issue.
 
