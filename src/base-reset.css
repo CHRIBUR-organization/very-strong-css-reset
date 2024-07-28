@@ -1,0 +1,6 @@
+*,
+*::before,
+*::after {
+  all: unset;
+  display: revert;
+}
