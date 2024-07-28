@@ -8,7 +8,7 @@
 		"stylelint:format:base": "run-s stylelint:base:fix format:base:fix",
 		"autoprefixer": "postcss 'src/base-reset.css' --output 'src/reset.css'",
 		"format:fix": "prettier --write 'src/reset.css'",
-		"stylelint:format:base:autoprefixer:format": "run-s stylelint:format:base autoprefixer",
+		"stylelint:format:base:autoprefixer:format": "run-s stylelint:format:base autoprefixer format:fix",
 		"cssnano": "postcss 'src/reset.css' --output 'src/reset.min.css'",
 		"stylelint:format:base:autoprefixer:format:cssnano": "run-s stylelint:format:base:autoprefixer:format cssnano",
 		"build": "run-s tsc lint:fix stylelint:format:base:autoprefixer:format:cssnano"
