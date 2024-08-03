@@ -1,0 +1,50 @@
+name: Monthly Build and Pull Request
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+
+      - name: Install mise and pnpm
+        run: |
+          curl https://mise.jdx.dev/install.sh | sh
+          echo "$HOME/.local/share/mise/bin" >> $GITHUB_PATH
+          echo "$HOME/.local/share/mise/shims" >> $GITHUB_PATH
+          mise use pnpm@latest
+
+      - name: Install dependencies
+        run: pnpm i
+
+      - name: Run build script
+        run: pnpm run build
+
+      - name: Check for changes
+        id: git_diff
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "actions-user"
+          git diff --exit-code || echo "has_changes=true" >> $GITHUB_ENV
+
+      - name: Get the current date
+        env:
+          TZ: 'UTC'
+        run: echo "CURRENT_DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+
+      - name: Create pull request if there are changes
+        if: env.has_changes == 'true'
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: 'Automated monthly build by GitHub Action on ${{ env.CURRENT_DATE }}'
+          title: 'Automated monthly build on ${{ env.CURRENT_DATE }}'
+          body: 'Created automatically by GitHub Action on ${{ env.CURRENT_DATE }}.'
+          branch: 'automated-build-${{ env.CURRENT_DATE }}'
+          base: 'dev'
