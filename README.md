@@ -6,7 +6,7 @@ This is a new reset CSS called Very Strong Reset CSS. It aims to be more powerfu
 
 - Completely resets browser default styles
 - Extremely radical reset CSS that sacrifices readability and web accessibility
-- Uses the `where:()` pseudo-class to keep CSS specificity low
+- Uses the `where:()` pseudo-class to keep CSS selector specificity low
 - Not supported in Internet Explorer
 
 ## Who Should Use This
