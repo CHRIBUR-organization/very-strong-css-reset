@@ -1,1 +1,1 @@
-export * from './css-loader/load-very-strong-reset-css';
+export * from './css-loader/load-very-strong-css-reset';

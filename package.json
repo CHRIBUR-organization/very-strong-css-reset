@@ -1,6 +1,11 @@
 {
+	"name": "@chribur_/very-strong-css-reset",
+	"version": "0.2.0",
 	"type": "module",
+	"description": "Very Strong CSS Reset, a modern and extremely radical CSS reset. It resets browser default styles. This module gives you a helper for loading it.",
+	"main": "dist/index.js",
 	"scripts": {
+		"clean": "rm -rf dist",
 		"tsc": "tsc -p tsconfig.json",
 		"lint:fix": "eslint --fix '**/*.{js,ts}' && prettier --write '**/*.{js,ts}'",
 		"stylelint:base:fix": "stylelint --fix 'src/base-reset.css'",
@@ -11,29 +16,45 @@
 		"stylelint:format:base:autoprefixer:format": "run-s stylelint:format:base autoprefixer format:fix",
 		"cssnano": "postcss 'src/reset.css' --output 'src/reset.min.css'",
 		"stylelint:format:base:autoprefixer:format:cssnano": "run-s stylelint:format:base:autoprefixer:format cssnano",
-		"build": "run-s tsc lint:fix stylelint:format:base:autoprefixer:format:cssnano"
+		"build:pre": "run-s clean tsc lint:fix stylelint:format:base:autoprefixer:format:cssnano",
+		"copy:reset:min": "cp src/reset.min.css dist/reset.min.css",
+		"build": "run-s build:pre copy:reset:min"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/CHRIBUR-organization/very-strong-css-reset"
+	},
+	"keywords": [
+		"css reset",
+		"very strong css reset"
+	],
+	"author": "CHRIBUR_",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/CHRIBUR-organization/very-strong-css-reset/issues"
+	},
+	"homepage": "https://github.com/CHRIBUR-organization/very-strong-css-reset#readme",
 	"devDependencies": {
-		"@eslint/js": "^9.8.0",
+		"@eslint/js": "^10.0.0",
 		"@types/eslint": "^9.6.0",
-		"@typescript-eslint/parser": "^7.17.0",
-		"autoprefixer": "^10.4.19",
+		"@typescript-eslint/parser": "^8.0.0",
+		"autoprefixer": "^10.4.20",
 		"cssnano": "^7.0.4",
 		"eslint": "^9.8.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-import-resolver-typescript": "^3.6.1",
 		"eslint-plugin-import": "^2.29.1",
-		"eslint-plugin-jsdoc": "^48.8.3",
+		"eslint-plugin-jsdoc": "^48.11.0",
 		"eslint-plugin-unused-imports": "^4.0.1",
-		"globals": "^15.8.0",
+		"globals": "^15.9.0",
 		"npm-run-all": "^4.1.5",
 		"postcss-cli": "^11.0.0",
 		"postcss-load-config": "^6.0.1",
 		"prettier": "^3.3.3",
-		"stylelint": "^16.7.0",
+		"stylelint": "^16.8.1",
 		"stylelint-config-standard": "^36.0.1",
 		"stylelint-order": "^6.0.4",
 		"typescript": "^5.5.4",
-		"typescript-eslint": "^7.17.0"
+		"typescript-eslint": "^8.0.0"
 	}
 }

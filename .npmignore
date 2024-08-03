@@ -1,0 +1,12 @@
+.github
+.vscode
+node_modules
+src
+.browserlistrc
+.gitignore
+.prettierrc
+.stylelintrc.js
+eslint.config.js
+pnpm-lock.yaml
+postcss.config.js
+tsconfig.json
