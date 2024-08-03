@@ -1,5 +1,8 @@
 # Very Strong CSS Reset
 
+![NPM Version](https://img.shields.io/npm/v/%40chribur_%2Fvery-strong-css-reset)
+![npm bundle size](https://img.shields.io/bundlephobia/min/%40chribur_%2Fvery-strong-css-reset)
+
 This is a new CSS reset called Very Strong CSS Reset. It aims to be more powerful by referencing existing excellent CSS reset.
 
 ## Features
