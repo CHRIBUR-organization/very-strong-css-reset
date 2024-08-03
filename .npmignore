@@ -9,5 +9,3 @@ src
 eslint.config.js
 pnpm-lock.yaml
 postcss.config.js
-tsconfig.json
-tsconfig.tsbuildinfo
