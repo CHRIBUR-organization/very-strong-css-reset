@@ -1,6 +1,6 @@
 {
 	"name": "@chribur_/very-strong-css-reset",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"type": "module",
 	"description": "Very Strong CSS Reset, a modern and extremely radical CSS reset. It resets browser default styles. This module gives you a helper for loading it.",
 	"main": "dist/index.js",
