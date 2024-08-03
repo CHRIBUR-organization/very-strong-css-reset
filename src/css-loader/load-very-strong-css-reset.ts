@@ -1,3 +1,5 @@
+import { JSDOM } from 'jsdom';
+
 /**
  * Loads Very Strong CSS Reset into the document.
  *
@@ -10,8 +12,11 @@
  * Call this function once your document is ready to ensure that the CSS reset
  * is applied before other styles. This is especially important for applications
  * that require a clean slate for custom styling.
+ *
+ * @param [dom] - The JSDOM object representing the document to load the CSS reset into.
  */
-export const loadVeryStrongCssReset = () => {
+export const loadVeryStrongCssReset = (dom?: JSDOM) => {
+  const document = dom?.window.document || window.document;
   const link = document.createElement('link');
   link.rel = 'stylesheet';
   link.href = '../reset.min.css';
