@@ -4,8 +4,8 @@
     "baseUrl": ".",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "incremental": true,
     "isolatedModules": true,
-    "jsx": "preserve",
     "lib": [
       "dom",
       "dom.iterable",
@@ -13,18 +13,18 @@
     ],
     "module": "esnext",
     "moduleResolution": "node",
-    "noEmit": true,
     "noErrorTruncation": true,
+    "outDir": "dist",
     "paths": {
       "@/*": [
         "./*"
       ]
     },
+    "resolveJsonModule": true,
+    "rootDir": "src",
     "skipLibCheck": true,
     "strict": true,
-    "target": "ESNext",
-    "incremental": true,
-    "resolveJsonModule": true
+    "target": "ESNext"
   },
   "exclude": [
     "**/node_modules**",
@@ -32,6 +32,6 @@
     "**/dist**"
   ],
   "include": [
-    "**/*.ts",
+    "src/**/*.ts"
   ]
 }

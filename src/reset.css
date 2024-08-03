@@ -1,6 +1,84 @@
+*:where(:not(html)) {
+  all: unset;
+  cursor: auto;
+  display: revert;
+}
+
 *,
 *::before,
 *::after {
-  all: unset;
-  display: revert;
+  box-sizing: border-box;
+}
+
+:where(
+    [hidden]:not([hidden='until-found']),
+    dialog:not([open], [popover]),
+    [popover]:not(:popover-open)
+  ) {
+  display: none !important;
+}
+
+:where([role='button'], [role='option']) {
+  cursor: pointer;
+}
+
+:where(html) {
+  color-scheme: dark light;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+:where(html:has(dialog:modal[open])) {
+  overflow: clip;
+}
+
+:where(html, body) {
+  height: 100dvh;
+}
+
+:where(body) {
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1;
+}
+
+:where(img, svg, video, canvas, audio, iframe, embed, object) {
+  display: block;
+}
+
+:where(img, picture, svg, video) {
+  block-size: auto;
+  max-inline-size: 100%;
+}
+
+:where(p, h1, h2, h3, h4, h5, h6, textarea) {
+  line-break: strict;
+  overflow-wrap: anywhere;
+}
+
+:where(pre) {
+  font-family: monospace, sans-serif;
+  white-space: pre-wrap;
+}
+
+:where(ol, ul, menu, summary) {
+  list-style: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :where(html:focus-within) {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
